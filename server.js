@@ -1,18 +1,27 @@
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { config } from "dotenv";
+import mongoose from "mongoose";
+import connectDB from "./config/dbConn.js";
+
 import express from "express";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import corsOptions from "./config/corsOptions.js";
 import errorHandler from "./middleware/errorHandler.js";
-import { logger } from "./middleware/logger.js";
+import { logEvents, logger } from "./middleware/logger.js";
 import router from "./routes/root.js";
 
 const __filename = fileURLToPath(import.meta.url); // boilerplate
 const __dirname = dirname(__filename); // boilerplate
 
+config();
+console.log(process.env.NODE_ENV);
+
 const app = express();
 const PORT = process.env.PORT || 3500;
+
+connectDB();
 
 app.use(logger);
 app.use(cors(corsOptions));
@@ -35,6 +44,17 @@ app.all("*", (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB");
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+});
+
+mongoose.connection.on("error", (error) => {
+  console.log(error);
+  logEvents(
+    `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
+    "mongoErrLog.log"
+  );
 });
