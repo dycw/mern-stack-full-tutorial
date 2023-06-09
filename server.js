@@ -10,7 +10,8 @@ import { fileURLToPath } from "url";
 import corsOptions from "./config/corsOptions.js";
 import errorHandler from "./middleware/errorHandler.js";
 import { logEvents, logger } from "./middleware/logger.js";
-import router from "./routes/root.js";
+import rootRouter from "./routes/root.js";
+import userRouter from "./routes/userRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url); // boilerplate
 const __dirname = dirname(__filename); // boilerplate
@@ -29,7 +30,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/", express.static(join(__dirname, "public")));
-app.use("/", router);
+app.use("/", rootRouter);
+app.use("/users", userRouter);
 
 app.all("*", (req, res) => {
   res.status(404);
