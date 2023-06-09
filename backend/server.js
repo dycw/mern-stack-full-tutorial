@@ -10,6 +10,8 @@ import { fileURLToPath } from "url";
 import corsOptions from "./config/corsOptions.js";
 import errorHandler from "./middleware/errorHandler.js";
 import { logEvents, logger } from "./middleware/logger.js";
+import authRouter from "./routes/authRoutes.js";
+import noteRouter from "./routes/noteRoutes.js";
 import rootRouter from "./routes/root.js";
 import userRouter from "./routes/userRoutes.js";
 
@@ -31,7 +33,9 @@ app.use(cookieParser());
 
 app.use("/", express.static(join(__dirname, "public")));
 app.use("/", rootRouter);
+app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/notes", noteRouter);
 
 app.all("*", (req, res) => {
   res.status(404);
