@@ -127,10 +127,10 @@ packages:
       }
     engines: { node: ">=10" }
 
-  /@babel/runtime@7.22.3:
+  /@babel/runtime@7.22.5:
     resolution:
       {
-        integrity: sha512-XsDuspWKLUsxwCp6r7EhsExHtYfbe5oAGQ19kqngTdCPUoPQzOPdUbD/pB9PJiwb2ptYKQDjSJT3R6dC+EPqfQ==,
+        integrity: sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==,
       }
     engines: { node: ">=6.9.0" }
     dependencies:
@@ -1580,7 +1580,7 @@ packages:
       }
     engines: { node: ">=0.11" }
     dependencies:
-      "@babel/runtime": 7.22.3
+      "@babel/runtime": 7.22.5
     dev: false
 
   /debug@2.6.9:
@@ -3510,7 +3510,7 @@ packages:
       redux:
         optional: true
     dependencies:
-      "@babel/runtime": 7.22.3
+      "@babel/runtime": 7.22.5
       "@reduxjs/toolkit": 1.9.5(react-redux@8.0.7)(react@18.2.0)
       "@types/hoist-non-react-statics": 3.3.1
       "@types/react": 18.2.8
@@ -3580,7 +3580,7 @@ packages:
         integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==,
       }
     dependencies:
-      "@babel/runtime": 7.22.3
+      "@babel/runtime": 7.22.5
     dev: false
 
   /regenerator-runtime@0.13.11:
@@ -3632,10 +3632,10 @@ packages:
     dependencies:
       glob: 7.2.3
 
-  /rollup@3.23.0:
+  /rollup@3.24.0:
     resolution:
       {
-        integrity: sha512-h31UlwEi7FHihLe1zbk+3Q7z1k/84rb9BSwmBSr/XjOCEaBJ2YyedQDuM0t/kfOS0IxM+vk1/zI9XxYj9V+NJQ==,
+        integrity: sha512-OgraHOIg2YpHQTjl0/ymWfFNBEyPucB7lmhXrQUh38qNOegxLapSPFs9sNr0qKR75awW41D93XafoR2QfhBdUQ==,
       }
     engines: { node: ">=14.18.0", npm: ">=8.0.0" }
     hasBin: true
@@ -4242,7 +4242,7 @@ packages:
     dependencies:
       esbuild: 0.17.19
       postcss: 8.4.24
-      rollup: 3.23.0
+      rollup: 3.24.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
