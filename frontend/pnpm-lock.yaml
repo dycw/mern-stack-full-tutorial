@@ -14,12 +14,18 @@ dependencies:
   "@fortawesome/react-fontawesome":
     specifier: ^0.2.0
     version: 0.2.0(@fortawesome/fontawesome-svg-core@6.4.0)(react@18.2.0)
+  "@reduxjs/toolkit":
+    specifier: ^1.9.5
+    version: 1.9.5(react-redux@8.0.7)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-redux:
+    specifier: ^8.0.7
+    version: 8.0.7(@reduxjs/toolkit@1.9.5)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
   react-router-dom:
     specifier: ^6.3.0
     version: 6.3.0(react-dom@18.2.0)(react@18.2.0)
@@ -2743,6 +2749,28 @@ packages:
       webpack-dev-server: 4.15.0(webpack@5.86.0)
     dev: false
 
+  /@reduxjs/toolkit@1.9.5(react-redux@8.0.7)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-Rt97jHmfTeaxL4swLRNPD/zV4OxTes4la07Xc4hetpUW/vc75t5m1ANyxG6ymnEQ2FsLQsoMlYB2vV1sO3m8tQ==,
+      }
+    peerDependencies:
+      react: ^16.9.0 || ^17.0.0 || ^18
+      react-redux: ^7.2.1 || ^8.0.2
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-redux:
+        optional: true
+    dependencies:
+      immer: 9.0.21
+      react: 18.2.0
+      react-redux: 8.0.7(@reduxjs/toolkit@1.9.5)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
+      redux: 4.2.1
+      redux-thunk: 2.4.2(redux@4.2.1)
+      reselect: 4.1.8
+    dev: false
+
   /@rollup/plugin-babel@5.3.1(@babel/core@7.22.5)(rollup@2.79.1):
     resolution:
       {
@@ -3166,6 +3194,16 @@ packages:
       "@types/node": 20.2.5
     dev: false
 
+  /@types/hoist-non-react-statics@3.3.1:
+    resolution:
+      {
+        integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==,
+      }
+    dependencies:
+      "@types/react": 18.2.9
+      hoist-non-react-statics: 3.3.2
+    dev: false
+
   /@types/html-minifier-terser@6.1.0:
     resolution:
       {
@@ -3256,6 +3294,13 @@ packages:
       }
     dev: false
 
+  /@types/prop-types@15.7.5:
+    resolution:
+      {
+        integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==,
+      }
+    dev: false
+
   /@types/q@1.5.5:
     resolution:
       {
@@ -3277,6 +3322,17 @@ packages:
       }
     dev: false
 
+  /@types/react@18.2.9:
+    resolution:
+      {
+        integrity: sha512-pL3JAesUkF7PEQGxh5XOwdXGV907te6m1/Qe1ERJLgomojS6Ne790QiA7GUl434JEkFA2aAaB6qJ5z4e1zJn/w==,
+      }
+    dependencies:
+      "@types/prop-types": 15.7.5
+      "@types/scheduler": 0.16.3
+      csstype: 3.1.2
+    dev: false
+
   /@types/resolve@1.17.1:
     resolution:
       {
@@ -3290,6 +3346,13 @@ packages:
     resolution:
       {
         integrity: sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==,
+      }
+    dev: false
+
+  /@types/scheduler@0.16.3:
+    resolution:
+      {
+        integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==,
       }
     dev: false
 
@@ -3349,6 +3412,13 @@ packages:
     resolution:
       {
         integrity: sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==,
+      }
+    dev: false
+
+  /@types/use-sync-external-store@0.0.3:
+    resolution:
+      {
+        integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==,
       }
     dev: false
 
@@ -5355,6 +5425,13 @@ packages:
       cssom: 0.3.8
     dev: false
 
+  /csstype@3.1.2:
+    resolution:
+      {
+        integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==,
+      }
+    dev: false
+
   /damerau-levenshtein@1.0.8:
     resolution:
       {
@@ -7228,6 +7305,15 @@ packages:
       }
     dependencies:
       "@babel/runtime": 7.22.5
+    dev: false
+
+  /hoist-non-react-statics@3.3.2:
+    resolution:
+      {
+        integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==,
+      }
+    dependencies:
+      react-is: 16.13.1
     dev: false
 
   /hoopy@0.1.4:
@@ -11320,6 +11406,45 @@ packages:
       }
     dev: false
 
+  /react-redux@8.0.7(@reduxjs/toolkit@1.9.5)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1):
+    resolution:
+      {
+        integrity: sha512-1vRQuCQI5Y2uNmrMXg81RXKiBHY3jBzvCvNmZF437O/Z9/pZ+ba2uYHbemYXb3g8rjsacBGo+/wmfrQKzMhJsg==,
+      }
+    peerDependencies:
+      "@reduxjs/toolkit": ^1 || ^2.0.0-beta.0
+      "@types/react": ^16.8 || ^17.0 || ^18.0
+      "@types/react-dom": ^16.8 || ^17.0 || ^18.0
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+      react-native: ">=0.59"
+      redux: ^4 || ^5.0.0-beta.0
+    peerDependenciesMeta:
+      "@reduxjs/toolkit":
+        optional: true
+      "@types/react":
+        optional: true
+      "@types/react-dom":
+        optional: true
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+      redux:
+        optional: true
+    dependencies:
+      "@babel/runtime": 7.22.5
+      "@reduxjs/toolkit": 1.9.5(react-redux@8.0.7)(react@18.2.0)
+      "@types/hoist-non-react-statics": 3.3.1
+      "@types/use-sync-external-store": 0.0.3
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-is: 18.2.0
+      redux: 4.2.1
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
   /react-refresh@0.11.0:
     resolution:
       {
@@ -11521,6 +11646,26 @@ packages:
       minimatch: 3.1.2
     dev: false
 
+  /redux-thunk@2.4.2(redux@4.2.1):
+    resolution:
+      {
+        integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==,
+      }
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: 4.2.1
+    dev: false
+
+  /redux@4.2.1:
+    resolution:
+      {
+        integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==,
+      }
+    dependencies:
+      "@babel/runtime": 7.22.5
+    dev: false
+
   /regenerate-unicode-properties@10.1.0:
     resolution:
       {
@@ -11639,6 +11784,13 @@ packages:
     resolution:
       {
         integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==,
+      }
+    dev: false
+
+  /reselect@4.1.8:
+    resolution:
+      {
+        integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==,
       }
     dev: false
 
@@ -13150,6 +13302,17 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+    dev: false
+
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /util-deprecate@1.0.2:
