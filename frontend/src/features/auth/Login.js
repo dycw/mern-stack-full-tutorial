@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
+import usePersist from "../../hooks/usePersist";
 
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "./authApiSlice";
@@ -11,10 +13,9 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
-
+  const [persist, setPersist] = usePersist();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [login, { isLoading }] = useLoginMutation();
 
   useEffect(() => {
@@ -49,10 +50,13 @@ export default function Login() {
 
   const handleUserInput = (e) => setUsername(e.target.value);
   const handlePwdInput = (e) => setPassword(e.target.value);
+  const handleToggle = () => setPersist((prev) => !prev);
 
   const errClass = errMsg ? "errmsg" : "offscreen";
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <section className="public">
@@ -87,6 +91,17 @@ export default function Login() {
             required
           />
           <button className="form__submit-button">Sign In</button>
+
+          <label htmlFor="persist" className="form__persist">
+            <input
+              type="checkbox"
+              className="form__checkbox"
+              id="persist"
+              onChange={handleToggle}
+              checked={persist}
+            />
+            Trust This Device
+          </label>
         </form>
       </main>
       <footer>

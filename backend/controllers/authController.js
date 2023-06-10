@@ -29,8 +29,7 @@ const login = asyncHandler(async (req, res) => {
   const refreshToken = sign(
     { username: user.username },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: "1d" }
-    // { expiresIn: "7d" },
+    { expiresIn: "7d" }
   );
   res.cookie("jwt", refreshToken, {
     httpOnly: true,
