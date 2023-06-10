@@ -4,15 +4,16 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDeleteNoteMutation, useUpdateNoteMutation } from "./notesApiSlice";
 
+import useAuth from "../../hooks/useAuth";
+
 export default function EditNoteForm({ note, users }) {
+  const { isManager, isAdmin } = useAuth();
   const [updateNote, { isLoading, isSuccess, isError, error }] =
     useUpdateNoteMutation();
-
   const [
     deleteNote,
     { isSuccess: isDelSuccess, isError: isDelError, error: delerror },
   ] = useDeleteNoteMutation();
-
   const navigate = useNavigate();
 
   const [title, setTitle] = useState(note.title);
@@ -78,6 +79,19 @@ export default function EditNoteForm({ note, users }) {
 
   const errContent = (error?.data?.message || delerror?.data?.message) ?? "";
 
+  let deleteButton = null;
+  if (isManager || isAdmin) {
+    deleteButton = (
+      <button
+        className="icon-button"
+        title="Delete"
+        onClick={onDeleteNoteClicked}
+      >
+        <FontAwesomeIcon icon={faTrashCan} />
+      </button>
+    );
+  }
+
   return (
     <>
       <p className={errClass}>{errContent}</p>
@@ -94,13 +108,7 @@ export default function EditNoteForm({ note, users }) {
             >
               <FontAwesomeIcon icon={faSave} />
             </button>
-            <button
-              className="icon-button"
-              title="Delete"
-              onClick={onDeleteNoteClicked}
-            >
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
+            {deleteButton}
           </div>
         </div>
         <label className="form__label" htmlFor="note-title">
