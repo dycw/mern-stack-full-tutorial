@@ -1,13 +1,16 @@
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGetNotesQuery } from "./notesApiSlice";
 
-import { useSelector } from "react-redux";
-import { selectNoteById } from "./notesApiSlice";
-
-export default function Note({ noteId }) {
+export default memo(function Note({ noteId }) {
+  const { note } = useGetNotesQuery("notesList", {
+    selectFromResult: ({ data }) => ({
+      note: data?.entities[noteId],
+    }),
+  });
   const navigate = useNavigate();
-  const note = useSelector((state) => selectNoteById(state, noteId));
   if (note) {
     const created = new Date(note.createdAt).toLocaleString("en-US", {
       day: "numeric",
@@ -41,4 +44,4 @@ export default function Note({ noteId }) {
   } else {
     return null;
   }
-}
+});

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import { Link, useNavigate } from "react-router-dom";
 import usePersist from "../../hooks/usePersist";
@@ -55,7 +56,7 @@ export default function Login() {
   const errClass = errMsg ? "errmsg" : "offscreen";
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <PulseLoader color={"#FFF"} />;
   }
 
   return (

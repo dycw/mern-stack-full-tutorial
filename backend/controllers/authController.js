@@ -1,11 +1,10 @@
 import { compare } from "bcrypt";
-import asyncHandler from "express-async-handler";
 import jwt, { verify } from "jsonwebtoken";
 import User from "../models/User.js";
 
 const { sign } = jwt; // CommonJS
 
-const login = asyncHandler(async (req, res) => {
+const login = async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     return res.status(400).json({ message: "All fields are required" });
@@ -38,7 +37,7 @@ const login = asyncHandler(async (req, res) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, // mmust match refreshToken
   });
   res.json({ accessToken });
-});
+};
 
 const refresh = (req, res) => {
   const cookies = req.cookies;
@@ -49,7 +48,7 @@ const refresh = (req, res) => {
   verify(
     refreshToken,
     process.env.REFRESH_TOKEN_SECRET,
-    asyncHandler(async (err, decoded) => {
+    async (err, decoded) => {
       if (err) {
         return res.status(403).json({ message: "Forbidden" });
       }
@@ -68,7 +67,7 @@ const refresh = (req, res) => {
         { expiresIn: "15m" }
       );
       res.json({ accessToken });
-    })
+    }
   );
 };
 

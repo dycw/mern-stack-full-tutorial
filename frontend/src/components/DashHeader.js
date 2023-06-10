@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import { useSendLogoutMutation } from "../features/auth/authApiSlice";
 
@@ -99,7 +100,7 @@ export default function DashHeader() {
 
   let buttonContent;
   if (isLoading) {
-    buttonContent = <p>Logging Out...</p>;
+    buttonContent = <PulseLoader color={"#FFF"} />;
   } else {
     buttonContent = (
       <>

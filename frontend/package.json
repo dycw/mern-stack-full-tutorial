@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "0.1.13",
+  "version": "0.1.14",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.7",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
